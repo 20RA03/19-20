@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище AeroflotModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aeroflot">
+          <Key>
+            <PropertyRef Name="номер рейса" />
+          </Key>
+          <Property Name="номер рейса" Type="int" Nullable="false" />
+          <Property Name="пункт назначения" Type="nvarchar" MaxLength="50" />
+          <Property Name="время вылета" Type="date" />
+          <Property Name="время прибытия" Type="date" />
+          <Property Name="количество свободных мест" Type="int" />
+          <Property Name="тип самолета" Type="nvarchar" MaxLength="50" />
+          <Property Name="вместимость самолета" Type="int" />
+        </EntityType>
+        <EntityType Name="Authorization">
+          <Key>
+            <PropertyRef Name="код" />
+          </Key>
+          <Property Name="код" Type="int" Nullable="false" />
+          <Property Name="логин" Type="int" />
+          <Property Name="пароль" Type="int" />
+          <Property Name="доступ" Type="nvarchar" MaxLength="50" />
+          <Property Name="почта" Type="nvarchar" MaxLength="50" />
+          <Property Name="фамилия" Type="nvarchar" MaxLength="50" />
+          <Property Name="имя" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="Хранилище AeroflotModelContainer">
+          <EntitySet Name="Aeroflot" EntityType="Self.Aeroflot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Authorization" EntityType="Self.Authorization" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AeroflotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aeroflot">
+          <Key>
+            <PropertyRef Name="номер_рейса" />
+          </Key>
+          <Property Name="номер_рейса" Type="Int32" Nullable="false" />
+          <Property Name="пункт_назначения" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="время_вылета" Type="DateTime" Precision="0" />
+          <Property Name="время_прибытия" Type="DateTime" Precision="0" />
+          <Property Name="количество_свободных_мест" Type="Int32" />
+          <Property Name="тип_самолета" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="вместимость_самолета" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Authorization">
+          <Key>
+            <PropertyRef Name="код" />
+          </Key>
+          <Property Name="код" Type="Int32" Nullable="false" />
+          <Property Name="логин" Type="Int32" />
+          <Property Name="пароль" Type="Int32" />
+          <Property Name="доступ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="почта" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="AeroflotEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aeroflots" EntityType="Self.Aeroflot" />
+          <EntitySet Name="Authorizations" EntityType="Self.Authorization" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AeroflotModelContainer" CdmEntityContainer="AeroflotEntities">
+          <EntitySetMapping Name="Aeroflots">
+            <EntityTypeMapping TypeName="AeroflotModel.Aeroflot">
+              <MappingFragment StoreEntitySet="Aeroflot">
+                <ScalarProperty Name="номер_рейса" ColumnName="номер рейса" />
+                <ScalarProperty Name="пункт_назначения" ColumnName="пункт назначения" />
+                <ScalarProperty Name="время_вылета" ColumnName="время вылета" />
+                <ScalarProperty Name="время_прибытия" ColumnName="время прибытия" />
+                <ScalarProperty Name="количество_свободных_мест" ColumnName="количество свободных мест" />
+                <ScalarProperty Name="тип_самолета" ColumnName="тип самолета" />
+                <ScalarProperty Name="вместимость_самолета" ColumnName="вместимость самолета" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authorizations">
+            <EntityTypeMapping TypeName="AeroflotModel.Authorization">
+              <MappingFragment StoreEntitySet="Authorization">
+                <ScalarProperty Name="код" ColumnName="код" />
+                <ScalarProperty Name="логин" ColumnName="логин" />
+                <ScalarProperty Name="пароль" ColumnName="пароль" />
+                <ScalarProperty Name="доступ" ColumnName="доступ" />
+                <ScalarProperty Name="почта" ColumnName="почта" />
+                <ScalarProperty Name="фамилия" ColumnName="фамилия" />
+                <ScalarProperty Name="имя" ColumnName="имя" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

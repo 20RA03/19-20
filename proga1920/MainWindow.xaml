@@ -1,0 +1,26 @@
+﻿<Window x:Class="proga1920.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:proga1920"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="940" ResizeMode="NoResize">
+    <Grid>
+        <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="927" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="90" Header="номер_рейса" Binding="{Binding номер_рейса}"/>
+                <DataGridTextColumn Width="105" Header="пункт_назначения" Binding="{Binding пункт_назначения}"/>
+                <DataGridTextColumn Width="100" Header="время_вылета" Binding="{Binding время_вылета}"/>
+                <DataGridTextColumn Width="100" Header="время_прибытия" Binding="{Binding время_прибытия}"/>
+                <DataGridTextColumn Width="130" Header="количество_свободных_мест" Binding="{Binding количество_свободных_мест}"/>
+                <DataGridTextColumn Width="130" Header="тип_самолета" Binding="{Binding тип_самолета}"/>
+                <DataGridTextColumn Width="120" Header="вместимость_самолета" Binding="{Binding вместимость_самолета}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="bb1" Content="добавить" HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" Width="75" Click="bb1_Click"/>
+        <Button x:Name="bb3" Content="удалить" HorizontalAlignment="Left" Margin="170,355,0,0" VerticalAlignment="Top" Width="75" Click="bb3_Click"/>
+        <Button x:Name="bb2" Content="изменить" HorizontalAlignment="Left" Margin="90,355,0,0" VerticalAlignment="Top" Width="75" Click="bb2_Click"/>
+    </Grid>
+</Window>

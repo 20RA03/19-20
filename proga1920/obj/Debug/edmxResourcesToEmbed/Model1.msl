@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище AeroflotModelContainer" CdmEntityContainer="AeroflotEntities">
+    <EntitySetMapping Name="Aeroflots">
+      <EntityTypeMapping TypeName="AeroflotModel.Aeroflot">
+        <MappingFragment StoreEntitySet="Aeroflot">
+          <ScalarProperty Name="номер_рейса" ColumnName="номер рейса" />
+          <ScalarProperty Name="пункт_назначения" ColumnName="пункт назначения" />
+          <ScalarProperty Name="время_вылета" ColumnName="время вылета" />
+          <ScalarProperty Name="время_прибытия" ColumnName="время прибытия" />
+          <ScalarProperty Name="количество_свободных_мест" ColumnName="количество свободных мест" />
+          <ScalarProperty Name="тип_самолета" ColumnName="тип самолета" />
+          <ScalarProperty Name="вместимость_самолета" ColumnName="вместимость самолета" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Authorizations">
+      <EntityTypeMapping TypeName="AeroflotModel.Authorization">
+        <MappingFragment StoreEntitySet="Authorization">
+          <ScalarProperty Name="код" ColumnName="код" />
+          <ScalarProperty Name="логин" ColumnName="логин" />
+          <ScalarProperty Name="пароль" ColumnName="пароль" />
+          <ScalarProperty Name="доступ" ColumnName="доступ" />
+          <ScalarProperty Name="почта" ColumnName="почта" />
+          <ScalarProperty Name="фамилия" ColumnName="фамилия" />
+          <ScalarProperty Name="имя" ColumnName="имя" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
